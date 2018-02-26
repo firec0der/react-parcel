@@ -9,6 +9,9 @@
   "repository": "git@github.com:firec0der/parsel-react-redux-example.git",
   "author": "Ivan Stetsenko <i.stetsenko1@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development parcel ./public/index.html"
+  },
   "dependencies": {
     "prop-types": "15.6.0",
     "react": "16.2.0",
