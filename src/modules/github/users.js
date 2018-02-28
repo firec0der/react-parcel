@@ -23,7 +23,7 @@ export default createReducer({
   [requestError]: ({ items }, { error }) => ({ isLoading: false, items, error }),
 }, initialState);
 
-function* performGithubUserFetching() {
+function* performGithubUsersFetching() {
   try {
     // API call will be here
     yield put(requestSuccess());
@@ -32,8 +32,8 @@ function* performGithubUserFetching() {
   }
 }
 
-export const fetchGithubUser = startRequest;
+export const fetchGithubUsers = startRequest;
 
-export function* githubUserFetchingWatcher() {
-  yield takeEvery(startRequest.getType(), performGithubUserFetching);
+export function* githubUsersFetchingWatcher() {
+  yield takeEvery(startRequest.getType(), performGithubUsersFetching);
 }
