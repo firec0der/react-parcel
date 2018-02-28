@@ -3,7 +3,7 @@ import { createAction, createReducer } from 'redux-act';
 import { put, takeEvery } from 'redux-saga/effects';
 
 // imports from constants
-import { ACTION_REQUEST, ACTION_SUCCESS, ACTION_ERROR } from '../../../constants/redux';
+import { ACTION_REQUEST, ACTION_SUCCESS, ACTION_ERROR } from '../../constants/redux';
 
 const ACTION_ROOT = 'GITHUB/USERS';
 
