@@ -13,20 +13,20 @@ const requestError = createAction(`${ACTION_ROOT}/${ACTION_ERROR}`);
 
 const initialState = {
   isLoading: false,
-  item: null,
+  items: [],
   error: null,
 };
 
 export default createReducer({
-  [startRequest]: ({ item }) => ({ isLoading: true, item, error: null }),
-  [requestSuccess]: (_, username) => ({ isLoading: false, item: username, error: null }),
-  [requestError]: ({ item }, { error }) => ({ isLoading: false, item, error }),
+  [startRequest]: ({ items }) => ({ isLoading: true, items, error: null }),
+  [requestSuccess]: (_, items) => ({ isLoading: false, items, error: null }),
+  [requestError]: ({ items }, { error }) => ({ isLoading: false, items, error }),
 }, initialState);
 
-function* performGithubUserFetching({ payload }) {
+function* performGithubUserFetching() {
   try {
     // API call will be here
-    yield put(requestSuccess(payload.username));
+    yield put(requestSuccess());
   } catch (error) {
     yield put(requestError(error));
   }
