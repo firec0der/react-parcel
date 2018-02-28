@@ -1,12 +1,9 @@
 // imports from vendors
-import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
-const initialDummyState = { hello: 'world' };
-
-const dummyReducer = (state = initialDummyState) => {
-  return state
-};
+import rootReducer from './reducers';
+import rootSaga from './sagas';
 
 const enhancers = [];
 
@@ -18,15 +15,18 @@ if (process.env.NODE_ENV === 'development') {
   }
 }
 
+const sagaMiddleware = createSagaMiddleware();
+
 const composedEnhancers = compose(
-  applyMiddleware(...[createSagaMiddleware()]),
+  applyMiddleware(...[sagaMiddleware]),
   ...enhancers
 );
 
 const store = createStore(
-  combineReducers({ dummy: dummyReducer }),
-  { dummy: initialDummyState },
+  rootReducer,
   composedEnhancers
 );
+
+sagaMiddleware.run(rootSaga);
 
 export default store;
