@@ -1,5 +1,5 @@
-export { default as About } from './About/About';
-export { default as Home } from './Home/Home';
-export { default as Repo } from './Repo/Repo';
-export { default as User } from './User/User';
-export { default as UserRepos } from './UserRepos/UserRepos';
+export { default as AboutPage } from './About/About';
+export { default as HomePage } from './Home/Home';
+export { default as RepoPage } from './Repo/Repo';
+export { default as UserPage } from './User/User';
+export { default as UserReposPage } from './UserRepos/UserRepos';
