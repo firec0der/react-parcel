@@ -6,6 +6,9 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 // imports from pages
 import { AboutPage, HomePage, RepoPage, UserPage, UserReposPage } from './pages';
 
+// imports from layouts
+import { MainLayout } from './layouts';
+
 import store from './store';
 
 export default class App extends React.Component {
@@ -14,19 +17,15 @@ export default class App extends React.Component {
     return (
       <Provider store={store}>
         <BrowserRouter>
-          <React.Fragment>
-            <header>Header</header>
-            <main>
-              <Switch>
-                <Route exact path="/" component={HomePage} />
-                <Route exact path="/users/:user" component={UserPage} />
-                <Route exact path="/users/:user/repos" component={UserReposPage} />
-                <Route exact path="/users/:user/repos/:repo" component={RepoPage} />
-                <Route path="/about" component={AboutPage} />
-              </Switch>
-            </main>
-            <footer>Footer</footer>
-          </React.Fragment>
+          <MainLayout>
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Route exact path="/users/:user" component={UserPage} />
+              <Route exact path="/users/:user/repos" component={UserReposPage} />
+              <Route exact path="/users/:user/repos/:repo" component={RepoPage} />
+              <Route path="/about" component={AboutPage} />
+            </Switch>
+          </MainLayout>
         </BrowserRouter>
       </Provider>
     );
