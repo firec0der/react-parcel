@@ -28,7 +28,7 @@ export default class PersonInfo extends React.PureComponent {
           <span className={styles.username}>{ username }</span>
         </div>
       </div>
-    )
+    );
   }
 
 }
