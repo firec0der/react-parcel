@@ -2,10 +2,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Grid, Row, Col, Image } from 'react-bootstrap';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 // imports from types
-import { matchShape, historyShape } from '../../types/router';
+import { matchShape } from '../../types/router';
 import { githubUserShape } from '../../types/github/user';
 
 // imports from modules
@@ -27,7 +27,6 @@ class UserPage extends React.Component {
   static propTypes = {
     // router
     match: matchShape.isRequired,
-    history: historyShape.isRequired,
     // action creators
     fetchGithubUser: PropTypes.func.isRequired,
     // data from the store
@@ -35,12 +34,12 @@ class UserPage extends React.Component {
       isLoading: PropTypes.bool.isRequired,
       item: githubUserShape,
       // error: PropTypes.object,
-    })
+    }).isRequired,
   };
 
   componentWillMount() {
     const { match, fetchGithubUser } = this.props;
-    const username = match.params.username;
+    const { username } = match.params;
     fetchGithubUser({ username });
   }
 
@@ -57,8 +56,6 @@ class UserPage extends React.Component {
       return null;
     }
 
-    console.log(user);
-
     return (
       <div>
         <Grid>
@@ -70,9 +67,7 @@ class UserPage extends React.Component {
                 fullname={user.item.name}
               />
             </Col>
-            <Col md={9}>
-
-            </Col>
+            <Col md={9} />
           </Row>
         </Grid>
       </div>
