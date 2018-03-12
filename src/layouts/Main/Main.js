@@ -1,5 +1,6 @@
 // imports from vendors
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 // imports from components
@@ -9,6 +10,14 @@ import { Footer, Header } from './components';
 import styles from './Main.scss';
 
 export default class MainLayout extends React.Component {
+
+  static propTypes = {
+    children: PropTypes.node,
+  };
+
+  static defaultProps = {
+    children: '',
+  };
 
   render() {
     const { children } = this.props;

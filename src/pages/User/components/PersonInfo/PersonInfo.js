@@ -14,6 +14,10 @@ export default class PersonInfo extends React.PureComponent {
     username: PropTypes.string.isRequired,
   };
 
+  static defaultProps = {
+    fullname: '',
+  };
+
   render() {
     const { avatarUrl, fullname, username } = this.props;
 
@@ -22,7 +26,7 @@ export default class PersonInfo extends React.PureComponent {
         <Image responsive rounded src={avatarUrl} />
 
         <div className={styles.names}>
-          { fullname && (
+          { fullname.length > 0 && (
             <span className={styles.fullname}>{ fullname }</span>
           ) }
           <span className={styles.username}>{ username }</span>
