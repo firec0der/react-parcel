@@ -15,10 +15,12 @@ export default class Svg extends React.PureComponent {
       PropTypes.string,
       PropTypes.func,
     ]),
+    className: PropTypes.string,
   };
 
   static defaultProps = {
     component: 'div',
+    className: '',
   };
 
   render() {
@@ -26,7 +28,7 @@ export default class Svg extends React.PureComponent {
 
     const props = {
       ...this.props,
-      className: classNames(styles.root, className)
+      className: classNames(styles.root, className),
     };
 
     return <ReactSvgInline {...props} />;
