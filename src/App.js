@@ -20,9 +20,9 @@ export default class App extends React.Component {
           <MainLayout>
             <Switch>
               <Route exact path="/" component={HomePage} />
-              <Route exact path="/users/:user" component={UserPage} />
-              <Route exact path="/users/:user/repos" component={UserReposPage} />
-              <Route exact path="/users/:user/repos/:repo" component={RepoPage} />
+              <Route exact path="/users/:username" component={UserPage} />
+              <Route exact path="/users/:username/repos" component={UserReposPage} />
+              <Route exact path="/users/:username/repos/:repo" component={RepoPage} />
               <Route path="/about" component={AboutPage} />
             </Switch>
           </MainLayout>
