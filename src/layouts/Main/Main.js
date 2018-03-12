@@ -1,11 +1,12 @@
 // imports from vendors
 import React from 'react';
+import classNames from 'classnames';
 
 // imports from components
-import { Footer } from './components';
+import { Footer, Header } from './components';
 
 // imports from styles
-import classNames from './Main.scss';
+import styles from './Main.scss';
 
 export default class MainLayout extends React.Component {
 
@@ -13,8 +14,9 @@ export default class MainLayout extends React.Component {
     const { children } = this.props;
 
     return (
-      <div className={classNames.root}>
-        <main className={classNames.content}>
+      <div className={styles.root}>
+        <Header />
+        <main className={classNames(styles.content, 'container')}>
           { children }
         </main>
         <Footer />
